@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>part2</title>
+
+</head>
+
+<body onLoad="do_game()">
+<script>
+var target;
+var guess_input_text;
+var guess_input;
+var finished= false;
+var colours=["blue","cyan", "gold", "gray", "green","magenta","orange","red","white","yellow"];
+var guesses=0;
+var index;
+var a;
+function do_game() {
+	var random_number= Math.random()*9;
+	var random_number_integer=Math.floor(random_number);
+	target= colours[(random_number_integer +1)];
+	alert("the answer is:" + target);
+	while(!finished) {
+		guess_input_text= prompt("I am thinking of one of these colours"+ "\n\n"
+		+"colours: blue,cyan, gold, gray, green,magenta,orange,red,white,yellow "+"\n" + "What Colour am I thinking of ?");
+		guess_input= guess_input_text;
+	//	a=colours.indexOf(guess_input);
+		guesses+=1;
+		finished=check_guess();
+		//if(guess_input===target){
+			//finished=true;
+			//}
+			//if(guess_input==='r'){
+			//	finished=true;
+			//	}
+		
+		}
+	
+	}
+	function check_guess(){
+		
+		
+	/*	if( a== -1 ) {
+			 alert("I don't recognize");
+		
+		return false;
+			}*/
+		
+				
+			if(guess_input > target){
+				alert("your guess is alphabetically higher");
+				return false;
+				
+				}
+				 if (guess_input < target) {
+
+        alert("your guess is alphabetically lower");
+		return false;
+				 }
+				 	
+
+
+			 
+			
+			else {
+			 alert("congratulations you got it right" +"\n" + "in number of guesses equal to" + " " + guesses);
+					 myBody=document.getElementsByTagName("body")[0];
+					 myBody.style.background=target;
+					 return true;
+			}
+				 
+		}
+	
+
+</script>
+</body>
+</html>
